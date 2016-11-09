@@ -36,7 +36,7 @@ var inst,inthit,pick,grabx,graby,hitx,hity;
 
 dam=0;
 Xs=64;
-Ys=376;
+Ys=572;
 rm_scr(global.rmcnt)
 //enct_scr();
 
@@ -44,8 +44,23 @@ rm_scr(global.rmcnt)
 array_scr();
 
 //surface_resize(application_suface)
+/*var base_w = 768;
+var base_h = 1024;
+var max_w = display_get_width();
+var max_h = display_get_height();
+var aspect = display_get_width() / display_get_height();
+
+    // portait
+    var VIEW_WIDTH = min(base_w, max_w);
+    var VIEW_HEIGHT = VIEW_WIDTH / aspect;
 
 
+view_wview[0] = floor(VIEW_WIDTH);
+view_hview[0] = floor(VIEW_HEIGHT);
+view_wport[0] = max_w;
+view_hport[0] = max_h;
+
+surface_resize(application_surface, view_wview[0], view_hview[0]);
 
 
 </string>
@@ -148,8 +163,8 @@ global.temphp =global.hp
  if global.fill=1{
  if instance_number(gem_obj)&lt;36{
      for (i =0; i &lt;6;i++)
-    {if !instance_position(Xs+(i*128),Ys,gem_obj){
-    instance_create(Xs+(i*128),Ys-1,gem_obj)}
+    {if !instance_position(Xs+(i*128),572,gem_obj){
+    instance_create(Xs+(i*128),572-1,gem_obj)}
     }
     
     }
@@ -186,7 +201,7 @@ global.temphp =global.hp
   var i
     if global.fill=2{
    with gem_obj{
-    if image_alpha &gt; .1 {image_alpha-=.05}else global.fill=3
+    if image_alpha &gt; .5 {image_alpha-=.05}else global.fill=3
     //if image_alpha&lt;.5 depth=5
     }}
     
@@ -198,11 +213,11 @@ global.temphp =global.hp
                 temphp-=global.damt[i]*def[i]} //reduce health
                global.damt[i]=0     }     //set dam back to zero}
         
-       global.hp+=(global.damt[0]*2.5)
+       global.temphp+=(global.damt[0]*2.5)
        if (global.hp &gt; global.maxhp){global.hp=global.maxhp}
        global.damt[0]=0
        global.fill =4
-        if alarm[1] = -1 alarm[1] = 60  // fill/check/dam reset give too npc
+        if alarm[1] = -1 alarm[1] = 30  // fill/check/dam reset give too npc
           
      }
      
@@ -295,7 +310,7 @@ if global.grab =1
     move_scr(inst,inthit)
     }
       }   
-if global.hp &gt; global.temphp global.hp-=.5
+if global.hp &gt; global.temphp global.hp-= (global.maxhp / 300)//abs(global.hp - global.temphp)/60// hp animation
       
   
 </string>

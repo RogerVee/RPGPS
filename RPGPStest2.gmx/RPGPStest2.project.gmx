@@ -21,6 +21,8 @@
       <sprite>sprites\grs_spr</sprite>
     </sprites>
     <sprite>sprites\butt_spr</sprite>
+    <sprite>sprites\obj_board</sprite>
+    <sprite>sprites\spr_feild</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bttl_bkg2</background>

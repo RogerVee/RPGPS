@@ -103,7 +103,7 @@ audio_play_sound(break_snd,0,false)
      
        
     nnn = collision_point(x,y+8,gem_obj,0,1);
-if(nnn &gt; 0 || y &gt; 1019){
+if(nnn &gt; 0 || y &gt; room_height-128){
   gravity = 0;
   speed = 0;
   if(nnn &gt; 0){y = nnn.y-128;}

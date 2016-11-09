@@ -84,7 +84,9 @@ y=200
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if hp &gt;temphp hp-=.5
+            <string>
+
+if hp &gt;temphp hp-=ttlhp/360
 
 if hp &lt;1 instance_destroy()
 
