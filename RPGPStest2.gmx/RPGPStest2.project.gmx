@@ -10,19 +10,27 @@
   </sounds>
   <sprites name="sprites">
     <sprites name="gem">
-      <sprite>sprites\wh_spr</sprite>
       <sprite>sprites\blu_spr</sprite>
-      <sprite>sprites\red_spr</sprite>
-      <sprite>sprites\grn_spr</sprite>
-      <sprite>sprites\blk_spr</sprite>
-      <sprite>sprites\pnk_spr</sprite>
     </sprites>
     <sprites name="NPC">
       <sprite>sprites\grs_spr</sprite>
     </sprites>
     <sprite>sprites\butt_spr</sprite>
-    <sprite>sprites\obj_board</sprite>
+    <sprite>sprites\spr_board</sprite>
     <sprite>sprites\spr_feild</sprite>
+    <sprites name="runegrp">
+      <sprite>sprites\pnk_spr</sprite>
+      <sprite>sprites\blk_spr</sprite>
+      <sprite>sprites\grn_spr</sprite>
+      <sprite>sprites\blue_spr</sprite>
+      <sprite>sprites\red_spr</sprite>
+      <sprite>sprites\wh_spr</sprite>
+      <sprite>sprites\wh_spr1</sprite>
+      <sprite>sprites\red_spr1</sprite>
+      <sprite>sprites\blue_spr1</sprite>
+      <sprite>sprites\grn_spr1</sprite>
+      <sprite>sprites\blk_spr1</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bttl_bkg2</background>
@@ -31,14 +39,18 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\array_scr.gml</script>
-    <script>scripts\move_scr.gml</script>
-    <script>scripts\check_scr.gml</script>
     <script>scripts\npclist_scr.gml</script>
     <script>scripts\npc_scr.gml</script>
     <script>scripts\rm_scr.gml</script>
     <script>scripts\fade_scr.gml</script>
     <script>scripts\fadein_scr.gml</script>
+    <script>scripts\move_scr.gml</script>
+    <scripts name="newgroup">
+      <script>scripts\boardSet_scr.gml</script>
+      <script>scripts\fill_scr.gml</script>
+      <script>scripts\check_scr.gml</script>
+      <script>scripts\img_ary_scr.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_but</font>
@@ -46,9 +58,7 @@
     <font>fonts\fnt_std_gpsdemo</font>
   </fonts>
   <objects name="objects">
-    <object>objects\cont_obj</object>
-    <object>objects\gem_obj</object>
-    <object>objects\gem_pick_obj</object>
+    <object>objects\start_obj</object>
     <object>objects\npc_obj</object>
     <objects name="buttions">
       <object>objects\btn_last_obj</object>
@@ -57,7 +67,17 @@
       <object>objects\btn_envounter_obj</object>
       <object>objects\but_obj</object>
     </objects>
-    <object>objects\start_obj</object>
+    <object>objects\play_scrn_obj</object>
+    <objects name="OBJ2">
+      <object>objects\rune_obj</object>
+      <object>objects\pick_obj</object>
+      <object>objects\edge_obj</object>
+      <object>objects\con_obj2</object>
+    </objects>
+    <objects name="old objs">
+      <object>objects\cont_obj</object>
+      <object>objects\gem_obj</object>
+    </objects>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\timeline0</timeline>

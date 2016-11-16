@@ -5,47 +5,47 @@ var hit2
 
 
 
-if abs(g.x-h.x)<64      //checking to see if the hit cell is in the same row
+if abs(g.x-h.x)<10    //checking to see if the hit cell is in the same colom, 
 {
     if abs(g.y-h.y)<130
     {
-        if g.y < h.y
+        if g.y < h.y    ///checking to see if the braged rune is above the hit rune
         {
-        g.y=g.y+128;
-        h.y=h.y-128;
+        g.y=g.y+120;    
+        h.y=h.y-120;
         
         }else{
-                g.y=g.y-128;
-                h.y=h.y+128;
+                g.y=g.y-120;
+                h.y=h.y+120;
                 }audio_play_sound (gem_move_snd,10,false)
     }
   
 }
 
-if abs(g.y-h.y)<64      //checking to see if hit cell is in the same collom
+if abs(g.y-h.y)<10    //checking to see if hit cell is in the same row
 {
     if abs(g.x-h.x)<130
     {
         if g.x<h.x
         {
-        g.x=g.x+128;
-        h.x=h.x-128;
+        g.x=g.x+120;
+        h.x=h.x-120;
         }else{
-               g.x=g.x-128;
-               h.x=h.x+128;
+               g.x=g.x-120;
+               h.x=h.x+120;
                 }audio_play_sound (gem_move_snd,10,false)
     }
 
 }else{//if not in the cells next to chosen 
         if abs(g.x-mouse_x)>abs(g.y-mouse_y)
                     {
-             hit2 =instance_position(mouse_x,g.y, gem_obj);
+             hit2 =instance_position(mouse_x,g.y, rune_obj);
             if inthit!=noone 
             {
             move_scr(g,hit2)
             }
             }else{ 
-             hit2 =instance_position(g.x,mouse_y, gem_obj);
+             hit2 =instance_position(g.x,mouse_y, rune_obj);
             if inthit!=noone 
             {
             move_scr(g,hit2)

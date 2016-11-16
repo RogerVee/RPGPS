@@ -86,7 +86,7 @@ y=200
             <kind>1</kind>
             <string>
 
-if hp &gt;temphp hp-=ttlhp/360
+if hp &gt;temphp hp-=ttlhp/100
 
 if hp &lt;1 instance_destroy()
 

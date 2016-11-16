@@ -27,21 +27,26 @@
             <kind>1</kind>
             <string>//
 npclist_scr();//gen master npc list 
-globalvar Xs, Ys,dam;
+img_ary_scr()
+globalvar Xs, Ys,dam,Lx,Ly,allFalling
 global.grab =0;
-global.fill =0;
+global.step =0;
 global.rmcnt=0;//how many rooms 
 //global.npccnt=1;//max npcs in encounter 
 var inst,inthit,pick,grabx,graby,hitx,hity;
 
+Lx=room_width-120
+Ly=room_height-10
+
+global.allFalling=0
 dam=0;
-Xs=64;
-Ys=572;
+Xs=120;
+Ys=120;
 rm_scr(global.rmcnt)
 //enct_scr();
 
 
-array_scr();
+//array_scr();
 
 //surface_resize(application_suface)
 /*var base_w = 768;
@@ -110,7 +115,7 @@ global.temphp =global.hp
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.fill=4 global.fill =5
+            <string>if global.step=5 global.step =6
 </string>
           </argument>
         </arguments>
@@ -133,7 +138,41 @@ global.temphp =global.hp
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>check_scr()
+            <string>///pause befor checking for more matches controled by fill step.
+
+
+check_scr()
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// checking for falling objs  ""step 1""
+if global.step=2{// if falling step 
+global.allFalling =0
+with(rune_obj)
+    {if global.allFalling=0   // check with all runes to see if any are falling 
+    global.allFalling=falling    
+    }
+    if global.allFalling =0 global.step=2.1
+    }
 </string>
           </argument>
         </arguments>
@@ -157,11 +196,23 @@ global.temphp =global.hp
           <argument>
             <kind>1</kind>
             <string>///fill 
+ 
+if global.step=2.1  {
+
+  fill_scr()//fill the empty spaces and come back 
+    global.step=2.5
+    if alarm_get(0)= -1 alarm[0]=15 //after get done filing check again waite there for animatons 
+  
+    }
+
+
+
+
 
     
  ///fill and check 
- if global.fill=1{
- if instance_number(gem_obj)&lt;36{
+ /*if global.step=1{
+ if instance_number(rune_obj)&lt;36{
      for (i =0; i &lt;6;i++)
     {if !instance_position(Xs+(i*128),572,gem_obj){
     instance_create(Xs+(i*128),572-1,gem_obj)}
@@ -199,13 +250,13 @@ global.temphp =global.hp
 
   //Damage
   var i
-    if global.fill=2{
-   with gem_obj{
-    if image_alpha &gt; .5 {image_alpha-=.05}else global.fill=3
+    if global.step=3{
+   with rune_obj{
+    if image_alpha &gt; .5 {image_alpha-=.05}else global.step=4
     //if image_alpha&lt;.5 depth=5
     }}
     
-    if global.fill=3{
+    if global.step=4{
     
         // if there are matching gems 
                 for(i=1;i&lt;6;i++){ //check all damage types for values
@@ -216,7 +267,7 @@ global.temphp =global.hp
        global.temphp+=(global.damt[0]*2.5)
        if (global.hp &gt; global.maxhp){global.hp=global.maxhp}
        global.damt[0]=0
-       global.fill =4
+       global.step =5
         if alarm[1] = -1 alarm[1] = 30  // fill/check/dam reset give too npc
           
      }
@@ -244,15 +295,15 @@ global.temphp =global.hp
           <argument>
             <kind>1</kind>
             <string>///NPC turn 
-if global.fill=5{ 
-    with gem_obj{
+if global.step=6{ 
+    with rune_obj{
     image_alpha=1
     depth=-1}
     with (npc_obj){
     trn-=1//step the npcs turn
         if trn&lt;1{global.temphp-=atk//if its its turn attack 
          trn= spd}}//if attacked return turn count to normal.
-         global.fill=0}//move faze
+         global.step=0}//move faze
          
 </string>
           </argument>
@@ -303,13 +354,18 @@ if instance_number(npc_obj)&lt;1{
           <argument>
             <kind>1</kind>
             <string>
+///grab 
+
 if global.grab =1
-{inthit =instance_position(mouse_x,mouse_y, gem_obj);
+{inthit =instance_position(mouse_x,mouse_y, rune_obj);
     if (inthit!=noone &amp;&amp; inthit!=inst)
     {
     move_scr(inst,inthit)
     }
       }   
+      
+      
+      
 if global.hp &gt; global.temphp global.hp-= (global.maxhp / 300)//abs(global.hp - global.temphp)/60// hp animation
       
   
@@ -335,7 +391,7 @@ if global.hp &gt; global.temphp global.hp-= (global.maxhp / 300)//abs(global.hp 
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.fill =0{
+            <string>if global.step =0{
 global.grab =0;
 if inst != noone
 {
@@ -366,20 +422,16 @@ check_scr()
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>        if global.fill = 0{  // if in fill damage or check state exit 
+            <string>        if global.step = 0{  // check to make sure in the idle state  
         
-           
-        
-        
-        
-            inst = instance_position(mouse_x, mouse_y, gem_obj);
+            inst = instance_position(mouse_x, mouse_y, rune_obj);
         
                 if inst != noone 
                 {
                 inst.image_alpha=.5
                 
                 pick = instance_create(x,y,gem_pick_obj)
-                pick.image_index = inst.image_index
+                pick.sprite_index = inst.sprite_index
                 pick.image_xscale=1.1
                 pick.image_yscale=1.1
                 global.grab =1;
@@ -407,7 +459,13 @@ check_scr()
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_healthbar(5,5,room_width-5,10,(global.hp/global.maxhp)*100,c_black, c_red, c_red, 0, true, true)
+            <string>draw_text(400,400,global.step)
+
+draw_text(400,300,instance_number(rune_obj))
+
+draw_text(400,200,global.allFalling)
+
+draw_healthbar(5,5,room_width-5,10,(global.hp/global.maxhp)*100,c_black, c_red, c_red, 0, true, true)
 draw_healthbar(5,5,room_width-5,10,(global.temphp/global.maxhp)*100,c_black, c_red, c_lime, 0, false, true)
 </string>
           </argument>
