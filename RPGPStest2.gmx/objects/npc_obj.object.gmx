@@ -33,7 +33,7 @@ image_speed=0
 
 
 x=140 *instance_number(npc_obj)
-y=200
+y=250
 
 
 
@@ -96,6 +96,32 @@ if hp &lt;1 instance_destroy()
     trn= spd}
     global.fill=0
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///step 5.5 / damage step 
+
+if trn&lt;1{global.temphp-=atk
+    audio_play_sound(dam_snd,0,false)
+    instance_create(x,y,obj_hit)//if its its turn attack 
+trn= spd}//if attacked return turn count to normal.
 </string>
           </argument>
         </arguments>

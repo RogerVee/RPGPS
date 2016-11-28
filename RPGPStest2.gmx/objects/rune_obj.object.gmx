@@ -28,11 +28,13 @@
             <string>type=irandom(5)
 sprite_index=global.imageArray[type];//set teh type = to a rtandome value 
 image_index=0
-image_speed=0;
+image_speed=.5;
+
 matched=0;
 falling =0;
 i=0
-
+ccombo=0
+fcombo=0
 
 
 
@@ -58,7 +60,16 @@ i=0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>effect_create_above(ef_firework, x, y-64, 128, c_green);
+            <string>//if first in combo block increse combo count by one and creat a object showing count 
+   if fcombo=1{
+     global.combos +=1
+    xxx=instance_create(x,y,obj_ccombo_count)
+       with (xxx) number=global.combos
+    }
+    
+
+global.damt[type]+=matched*1
+effect_create_above(ef_firework, x, y-64, 128, global.colorArray[type]);
 audio_play_sound(break_snd,0,false)
 </string>
           </argument>
@@ -82,7 +93,10 @@ audio_play_sound(break_snd,0,false)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>falling=0
+            <string>//return from faded state 
+
+//image_alpha=1
+//i=0
 </string>
           </argument>
         </arguments>
@@ -108,20 +122,25 @@ audio_play_sound(break_snd,0,false)
             <string>///gravity 
 
      
- if global.step=2 and falling=0{      
-nnn = instance_place(x,y+120,rune_obj);//can be used by the moving obj for the not me 
-if nnn=noone nnn = instance_place(x,y+120,edge_obj)//check for edge of playing feild 
-   
- if(nnn &gt; 0){
-    if  nnn.falling=1{
-        alarm[0]=20 
-        falling=1//check to see if obj bellow is falling and if so wait the fall aniamtion time to check again.
-                    }else{falling=0}
-     
-        }else{
-        falling = 1; // start falling 
-        }}
+ //if global.step=3.3 {      
+
+     nnn = collision_point(x,y+20,rune_obj,0,1);
+if(nnn = noone and y &lt; global.Ly and matched&lt;2)
+   {
+   if i=0{
+  xxx=instance_create (x,y,rune_move_obj)
+  with (xxx) {
+ sprite_index=global.imageArray[other.type]
+    Dy=other.id
+   }i=1}
+        y+=global.Ys
+        image_alpha=.1
+        alarm[0]=15
         
+        }
+        
+    
+    // }
         
   
 
@@ -145,11 +164,12 @@ if nnn=noone nnn = instance_place(x,y+120,edge_obj)//check for edge of playing f
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if matched &gt;0 
+            <string>/*if matched &gt;0 
 {
 global.damt[type]+=matched*3
 
-instance_destroy()}
+instance_destroy()}*/
+if image_index&gt;8 image_speed=0
 </string>
           </argument>
         </arguments>
@@ -173,7 +193,9 @@ instance_destroy()}
           <argument>
             <kind>1</kind>
             <string>draw_self()
-if falling =1
+//draw_text(x,y,fcombo)
+//draw_text(x,y-20,ccombo)
+/*if falling =1
     {
     if i&lt;6{
             image_index=i//1-5

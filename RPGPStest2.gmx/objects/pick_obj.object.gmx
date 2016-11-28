@@ -28,7 +28,7 @@
             <string>
 image_speed=0;
 image_alpha=.5;
-
+image_index=8
 depth = -100 
 
 
@@ -54,7 +54,7 @@ depth = -100
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///needs to put in step change 
+            <string>///move done checking for matches 
 
 global.grab=0
 if global.step=2 check_scr()

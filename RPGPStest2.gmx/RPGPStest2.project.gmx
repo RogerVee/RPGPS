@@ -7,10 +7,13 @@
   <sounds name="sound">
     <sound>sound\gem_move_snd</sound>
     <sound>sound\break_snd</sound>
+    <sound>sound\dam_snd</sound>
+    <sound>sound\cmb_snd</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="gem">
       <sprite>sprites\blu_spr</sprite>
+      <sprite>sprites\test</sprite>
     </sprites>
     <sprites name="NPC">
       <sprite>sprites\grs_spr</sprite>
@@ -30,6 +33,25 @@
       <sprite>sprites\blue_spr1</sprite>
       <sprite>sprites\grn_spr1</sprite>
       <sprite>sprites\blk_spr1</sprite>
+      <sprite>sprites\hit_spr</sprite>
+    </sprites>
+    <sprites name="dam group ">
+      <sprite>sprites\health_spr</sprite>
+      <sprite>sprites\blk_dam_spr</sprite>
+      <sprite>sprites\wh_dam_spr</sprite>
+      <sprite>sprites\blue_dam_spr</sprite>
+      <sprite>sprites\red_dam_spr</sprite>
+      <sprite>sprites\grn_dam_spr</sprite>
+    </sprites>
+    <sprites name="armory">
+      <sprite>sprites\slot_img</sprite>
+      <sprite>sprites\base_eqt</sprite>
+      <sprite>sprites\feet_eqt_spr</sprite>
+      <sprite>sprites\leg_eqt_spr</sprite>
+      <sprite>sprites\chest_eqt_spr</sprite>
+      <sprite>sprites\hand_eqt_spr</sprite>
+      <sprite>sprites\head_eqt_spr</sprite>
+      <sprite>sprites\stats_spr</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -39,17 +61,28 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\npclist_scr.gml</script>
-    <script>scripts\npc_scr.gml</script>
-    <script>scripts\rm_scr.gml</script>
-    <script>scripts\fade_scr.gml</script>
-    <script>scripts\fadein_scr.gml</script>
-    <script>scripts\move_scr.gml</script>
     <scripts name="newgroup">
       <script>scripts\boardSet_scr.gml</script>
+      <script>scripts\npc_scr.gml</script>
       <script>scripts\fill_scr.gml</script>
+      <script>scripts\rm_scr.gml</script>
+      <script>scripts\move_scr.gml</script>
+      <script>scripts\npclist_scr.gml</script>
       <script>scripts\check_scr.gml</script>
+      <script>scripts\old_check_no_combo.gml</script>
       <script>scripts\img_ary_scr.gml</script>
+      <script>scripts\dam_scr.gml</script>
+    </scripts>
+    <scripts name="oldscr">
+      <script>scripts\move_scr2.gml</script>
+      <script>scripts\fade_scr.gml</script>
+      <script>scripts\fadein_scr.gml</script>
+    </scripts>
+    <scripts name="army">
+      <script>scripts\eqpt_array.gml</script>
+    </scripts>
+    <scripts name="invintory">
+      <script>scripts\equip_scr.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -63,9 +96,11 @@
     <objects name="buttions">
       <object>objects\btn_last_obj</object>
       <object>objects\btn_btl_obj</object>
+      <object>objects\Arm_btn</object>
       <object>objects\bttm_exit_obj</object>
       <object>objects\btn_envounter_obj</object>
       <object>objects\but_obj</object>
+      <object>objects\addinv_btn</object>
     </objects>
     <object>objects\play_scrn_obj</object>
     <objects name="OBJ2">
@@ -73,10 +108,21 @@
       <object>objects\pick_obj</object>
       <object>objects\edge_obj</object>
       <object>objects\con_obj2</object>
+      <object>objects\rune_move_obj</object>
+      <object>objects\obj_hit</object>
+      <object>objects\obj_ccombo_count</object>
+      <object>objects\obj_dam</object>
     </objects>
     <objects name="old objs">
       <object>objects\cont_obj</object>
       <object>objects\gem_obj</object>
+    </objects>
+    <objects name="armory room">
+      <object>objects\slot_obj</object>
+      <object>objects\arm_pick</object>
+      <object>objects\army_cntrl</object>
+      <object>objects\eqt_obj</object>
+      <object>objects\stats_obj</object>
     </objects>
   </objects>
   <timelines name="timelines">
@@ -85,6 +131,7 @@
   <rooms name="rooms">
     <room>rooms\main_room</room>
     <room>rooms\battle_room</room>
+    <room>rooms\armory_rm</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

@@ -33,11 +33,12 @@ globalvar Xs, Ys,dam,Lx,Ly,allFalling
 global.grab =0;
 global.rmcnt=0;//how many rooms 
 global.holdtime =5*60 //time for holding rune
-
+global.ccombo=0 //count for how max matches in teh destro step 
+global.combos=0 //count for how many combs there were in the round
 var inst,inthit,pick,grabx,graby,hitx,hity;
-
+checkc=1;//count for destroy step related to matches. 
 Lx=room_width-84
-Ly= room_height-240///room hegightfor testingh room_height
+Ly= room_height-8///room hegightfor testingh room_height
 allFaling=0
 dam=0;
 Xs=120;
@@ -45,7 +46,7 @@ Ys=120;
 rm_scr(global.rmcnt)
 /// hp set up 
 
-global.hp =100*global.lvl
+global.hp =10*global.lvl
 global.maxhp=global.hp
 global.temphp =global.hp
 
@@ -77,10 +78,13 @@ while check_scr()&gt;0{
             type=irandom(5)
             sprite_index=global.imageArray[type];
             matched=0
+            ccombo=0
+            fcombo=0
             }
     
     }
 }
+dam_scr()
 global.step=1
 
 //surface_resize(application_suface)
@@ -103,6 +107,105 @@ view_hport[0] = max_h;
 surface_resize(application_surface, view_wview[0], view_hview[0]);
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>global.step=4
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>global.step=3.4
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///3.3
+
+global.step=3.3
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///step=1
+
+global.step=1
+with rune_obj{
+    image_alpha=1
+    depth=-1}
 </string>
           </argument>
         </arguments>
@@ -152,39 +255,8 @@ if global.step=4 global.step =5
             <kind>1</kind>
             <string>///pause befor checking for more matches controled by fill step.
 
-
+global.step=3.1
 check_scr()
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="2">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// checking for falling objs  ""step 1""
-if global.step=3{
-global.allFalling =0// if falling step 
-with(rune_obj)
-    {if global.allFalling=0   // check with all runes to see if any are falling 
-    global.allFalling=falling    
-    }
-    if global.allFalling =0 global.step=3.5
-    }
 </string>
           </argument>
         </arguments>
@@ -229,21 +301,19 @@ with(rune_obj)
           <argument>
             <kind>1</kind>
             <string>///step 2 rune move
-
-
 if global.grab =1
 {inthit =instance_position(pick.x,pick.y, rune_obj);
     if (inthit!=noone &amp;&amp; inthit!=inst)
     {
     move_scr(inst,inthit)
+    
      global.step=2//if colison change step
     }
       }   
       
       
       
-if global.hp &gt; global.temphp global.hp-= (global.maxhp / 300)//abs(global.hp - global.temphp)/60// hp animation
-      
+
   
 </string>
           </argument>
@@ -328,12 +398,29 @@ if global.hp &gt; global.temphp global.hp-= (global.maxhp / 300)//abs(global.hp 
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///step3 fill 
-if global.step=3.5  {
+            <string>///step3.4 fill //destroy 
 
-    fill_scr()//fill the empty spaces and come back 
-    global.step=3.6
-    if alarm_get(0)= -1 alarm[0]=15 //
+
+if global.step=3.2 {
+        if checkc&lt;global.ccombo+5 {
+            with rune_obj {
+                if ccombo = other.checkc instance_destroy()            
+            }
+           checkc++
+        }else{global.step=3.3}//if alarm_get(3)= -1 alarm[3] =10 }//alarm for destroy step
+
+        
+    }
+    
+if global.step=3.3{
+    if alarm_get(4)= -1 alarm[4] =20 //alarm for fall animation
+    }
+if global.step=3.4  {
+
+    fill_scr()//fill the empty spaces andalarm for check
+   checkc=1
+    
+    if alarm_get(0)= -1 alarm[0]=20 //
   
     }
 
@@ -378,7 +465,27 @@ if global.step=3.5  {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///step 6 damage turn 
+            <string>///step 3.6 damage turn   /combo multiplayer  
+
+if global.step=3.6{
+  /* with rune_obj{
+    if image_alpha &gt; .5 {image_alpha-=.05}//fade runes
+    //if image_alpha&lt;.5 depth=5
+    }*/
+    with (obj_ccombo_count){
+        alarm[0]=15*number//time between combo breinkinh 
+        
+        }
+    
+   global.step=3.7
+    }
+    
+    
+    
+    if global.step=3.7 {
+        if instance_number(obj_ccombo_count)&lt;1 if alarm[5]&lt;1 alarm[5]=40
+    
+    }
 </string>
           </argument>
         </arguments>
@@ -399,26 +506,22 @@ if global.step=3.5  {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>////damage/health 3.6
+            <string>////damage/health4
 
   //Damage
   var i
-    if global.step=3.6{
-   with rune_obj{
-    if image_alpha &gt; .5 {image_alpha-=.05}else global.step=4
-    //if image_alpha&lt;.5 depth=5
-    }}
-    
+     
     if global.step=4{
     
-        // if there are matching gems 
+       global.combos=0         
                 for(i=1;i&lt;6;i++){ //check all damage types for values
-                with (npc_obj){
-                temphp-=global.damt[i]*def[i]} //reduce health
-               global.damt[i]=0     }     //set dam back to zero}
+                    with (npc_obj){
+                    temphp-=global.damt[i]*def[i]} //reduce health
+                   global.damt[i]=0     }     //set dam back to zero}
         
        global.temphp+=(global.damt[0]*2.5)
-       if (global.hp &gt; global.maxhp){global.hp=global.maxhp}
+       if (global.temphp &gt; global.maxhp){global.temphp=global.maxhp}
+      
        global.damt[0]=0
        global.step =4
         if alarm[1] = -1 alarm[1] = 30  // fill/check/dam reset give too npc
@@ -449,15 +552,19 @@ if global.step=3.5  {
             <kind>1</kind>
             <string>///step 5 NPC turn 
 if global.step=5{ 
-    with rune_obj{
-    image_alpha=1
-    depth=-1}
+    
     with (npc_obj){
-    trn-=1//step the npcs turn
-        if trn&lt;1{global.temphp-=atk//if its its turn attack 
-         trn= spd}}//if attacked return turn count to normal.
-         global.step=1}//move faze
+         trn-=1//step the npcs turn
+        
+         }
          
+         global.step=5.5
+               if alarm[2]=-1 alarm[2]=30 ///timer for idle step
+         
+         }//move faze
+         
+ if global.hp &gt; global.temphp global.hp-= (global.maxhp / 200)//abs(global.hp - global.temphp)/60// hp animation
+      
 </string>
           </argument>
         </arguments>
@@ -508,17 +615,14 @@ if instance_number(npc_obj)&lt;1{
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*if global.step =2{
-global.grab =0;
-*/
-
-if inst != noone
+            <string>///grabed image reset
+if instance_exists(inst) 
 {
 inst.image_alpha=1
 }
 
 
-//}
+
 </string>
           </argument>
         </arguments>
@@ -541,7 +645,7 @@ inst.image_alpha=1
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///step 2
+            <string>///grab 1
         
         if global.step = 1{  // if in fill damage or check state exit 
         
@@ -581,10 +685,12 @@ inst.image_alpha=1
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_text(400,400,global.step)
+            <string>draw_text(400,300,global.step)
+draw_text(600,300,checkc)
+draw_text(650,300,global.combos)
 
-draw_healthbar(5,5,room_width-5,10,(global.hp/global.maxhp)*100,c_black, c_red, c_red, 0, true, true)
-draw_healthbar(5,5,room_width-5,10,(global.temphp/global.maxhp)*100,c_black, c_red, c_lime, 0, false, true)
+draw_healthbar(5,Ly-(7*120)-16,room_width-5,Ly-(7*120)-8,(global.hp/global.maxhp)*100,c_black, c_red, c_red, 0, true, true)
+draw_healthbar(5,Ly-(7*120)-16,room_width-5,Ly-(7*120)-8,(global.temphp/global.maxhp)*100,c_black, c_red, c_lime, 0, false, true)
 </string>
           </argument>
         </arguments>

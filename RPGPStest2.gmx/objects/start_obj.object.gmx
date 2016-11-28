@@ -25,10 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.list =3//how many rooms
+            <string>global.list =5//how many rooms
 global.maxlist =10
 global.lvl =5
-
+global.grab =0
 
 for (i =0; i &lt;global.maxlist;i++){
     for (j = 0; j &lt; 3; j++)

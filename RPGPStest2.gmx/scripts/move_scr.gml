@@ -1,10 +1,19 @@
 g = argument0//grabed instance id 
 h = argument1//hit instance id
 var hit2
+hX=h.x
+hY=h.y
 
 
+if 1=1{
+h.x=g.x
+h.y=g.y
 
-
+g.x=hX
+g.y=hY
+audio_play_sound (gem_move_snd,10,false)
+}
+/*
 if abs(g.x-h.x)<10    //checking to see if the hit cell is in the same colom, 
 {
     if abs(g.y-h.y)<130

@@ -7,10 +7,10 @@ npc=instance_create(x,y,npc_obj)
         with npc{   
        
        name= global.npc[other.num,0]
-    hp=(global.npc[other.num,1]+(global.npc[other.num,1]*(other.dif/100)))//adjusting dificulty based on difrence in wanted dif
+    hp=(global.npc[other.num,1])//adjusting dificulty based on difrence in wanted dif
     temphp = hp
     ttlhp=hp
-    atk= (global.npc[other.num,2]+(global.npc[other.num,2]*(other.dif/100)))
+    atk= (global.npc[other.num,2])
     spd= global.npc[other.num,3]
     trn= spd
     

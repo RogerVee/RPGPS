@@ -29,9 +29,5 @@
     <frame index="6">images\red_spr_6.png</frame>
     <frame index="7">images\red_spr_7.png</frame>
     <frame index="8">images\red_spr_8.png</frame>
-    <frame index="9">images\red_spr_9.png</frame>
-    <frame index="10">images\red_spr_10.png</frame>
-    <frame index="11">images\red_spr_11.png</frame>
-    <frame index="12">images\red_spr_12.png</frame>
   </frames>
 </sprite>
