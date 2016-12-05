@@ -33,7 +33,16 @@
             instance_create(0,192,stats_obj)
             
 for(i=0;i&lt;6;i++){
-     nnn= instance_create(i*128,500,eqt_obj)      
+     nnn= instance_create(i*128,500,eqt_obj) 
+        eqt_scr(nnn)
+        with (nnn){
+        
+        
+        
+        
+        
+        }
+         
                   }   
             
           

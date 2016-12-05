@@ -1,7 +1,7 @@
 //aug1 ///type sword sheild ect
 //aug2// rareity
-//aug3//collor
-/*r=(random_range(0,99))//getting rare lvl will be feed later
+//aug3//color
+r=(random_range(0,1))//getting rare lvl will be feed later
 t=random(5)//random item type will be fedd later// maybe get it when assesing the list to see what is avlibille
 c=random(5)//random color /will be feed later
 a=random(15) // base precent for agumenting item 
@@ -45,4 +45,4 @@ for (i=0;i<26;i++){
     global.neweqt[image]=(global.neweqt[t]//need to change the image for the type
     
     
-    
+    hp=

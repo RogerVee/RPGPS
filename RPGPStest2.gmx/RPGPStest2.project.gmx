@@ -3,7 +3,9 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <NewExtensions/>
+  <NewExtensions>
+    <extension index="0">extensions\GPS for Android</extension>
+  </NewExtensions>
   <sounds name="sound">
     <sound>sound\gem_move_snd</sound>
     <sound>sound\break_snd</sound>
@@ -46,12 +48,23 @@
     <sprites name="armory">
       <sprite>sprites\slot_img</sprite>
       <sprite>sprites\base_eqt</sprite>
+      <sprite>sprites\holy_set_spr</sprite>
+      <sprite>sprites\earth_set_spr</sprite>
+      <sprite>sprites\water_set_spr</sprite>
+      <sprite>sprites\fire_set_spr</sprite>
+      <sprite>sprites\steel_set_spr</sprite>
       <sprite>sprites\feet_eqt_spr</sprite>
       <sprite>sprites\leg_eqt_spr</sprite>
       <sprite>sprites\chest_eqt_spr</sprite>
       <sprite>sprites\hand_eqt_spr</sprite>
       <sprite>sprites\head_eqt_spr</sprite>
       <sprite>sprites\stats_spr</sprite>
+      <sprite>sprites\weapion_spr</sprite>
+    </sprites>
+    <sprites name="GPS">
+      <sprite>sprites\tracking_img</sprite>
+      <sprite>sprites\stop_img</sprite>
+      <sprite>sprites\track_img</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -84,11 +97,18 @@
     <scripts name="invintory">
       <script>scripts\equip_scr.gml</script>
     </scripts>
+    <scripts name="GPS">
+      <script>scripts\location_documentation.gml</script>
+      <script>scripts\travle_cal.gml</script>
+    </scripts>
+    <script>scripts\location_documentation_new.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_but</font>
     <font>fonts\testfnt</font>
     <font>fonts\fnt_std_gpsdemo</font>
+    <font>fonts\fnt_std_gpsdemo_new</font>
+    <font>fonts\fnt_std_gpsdemo_new_new</font>
   </fonts>
   <objects name="objects">
     <object>objects\start_obj</object>
@@ -97,6 +117,7 @@
       <object>objects\btn_last_obj</object>
       <object>objects\btn_btl_obj</object>
       <object>objects\Arm_btn</object>
+      <object>objects\gps_btn</object>
       <object>objects\bttm_exit_obj</object>
       <object>objects\btn_envounter_obj</object>
       <object>objects\but_obj</object>
@@ -124,6 +145,14 @@
       <object>objects\eqt_obj</object>
       <object>objects\stats_obj</object>
     </objects>
+    <objects name="GPS">
+      <object>objects\obj_gpsdemo</object>
+      <object>objects\obj_locationpointold</object>
+      <object>objects\obj_gpsdemoold</object>
+      <object>objects\obj_locationpoint</object>
+      <object>objects\travling_buttion</object>
+      <object>objects\walk_obj</object>
+    </objects>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\timeline0</timeline>
@@ -132,6 +161,7 @@
     <room>rooms\main_room</room>
     <room>rooms\battle_room</room>
     <room>rooms\armory_rm</room>
+    <room>rooms\rm_gps</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
