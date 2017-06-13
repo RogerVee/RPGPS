@@ -25,11 +25,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.list =5//how many rooms
+            <string>random_set_seed(1);//for debuging
+global.list =5//how many rooms
 global.maxlist =10
+global.maxInv=150
 global.lvl =5
 global.grab =0
+global.debug=0
 
+global.currentLoadout=0
+scr_loadout()
+scr_items()
+inven_scr()
 for (i =0; i &lt;global.maxlist;i++){
     for (j = 0; j &lt; 3; j++)
     { 
@@ -38,7 +45,11 @@ for (i =0; i &lt;global.maxlist;i++){
         }
         }
  img_ary_scr()       
-        
+ inven_img_scr()
+ for(i=0;i&lt;10;i++)//add 5 to teh inventory 
+{
+  create_equipment_scr()  
+}
  /*       
 var base_w = 768;
 var base_h = 1024;
@@ -59,6 +70,26 @@ view_hport[0] = max_h;
 
 surface_resize(application_surface, view_wview[0], view_hview[0]);
 </string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>524</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_color</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>13</kind>
+            <string>0</string>
           </argument>
         </arguments>
       </action>

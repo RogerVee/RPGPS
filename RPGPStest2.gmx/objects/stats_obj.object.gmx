@@ -3,7 +3,7 @@
   <spriteName>stats_spr</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-150</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,20 +25,37 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ref=0
-hp =0
-atk=0
-heal=0
-name=0
-slot=0
+            <string>statsSurface = surface_create(view_wview[0], view_hview[0]);
+ref= 0
+refSlot= 0
+surface_set_target(statsSurface);
+draw_clear_alpha(c_black, 0);
+with(all)
+{
+    if (visible == true)
+    {
+        x = x-view_xview[0];
+        y = y-view_yview[0];
+        event_perform(ev_draw,0);
+        x = x+view_xview[0];
+        y = y+view_yview[0];
+        
+    }
+}
+surface_reset_target();
+instance_deactivate_all(true);
+visible = true;
 
+
+
+alarm_set(0,2)
 
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="1" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -55,14 +72,41 @@ slot=0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if ref!=0
-    {
-    hp=ref.hp
-    atk=ref.atk
-    heal=ref.heal
-    name=ref.name
-    slot=ref.slot
-    }
+            <string>surface_free(statsSurface)
+instance_activate_all();
+armory_equip_sort_scr()
+with (equipeBut) instance_destroy()
+with (cancelBut) instance_destroy()
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>equipeBut=instance_create(other.room_width-256,room_height-128,obj_equip_item_btn)
+with equipeBut
+{
+   ref=other.ref
+   refSlot=other.refSlot
+}
+cancelBut=instance_create(x+128,room_height-128,obj_cancel_item_btn)
 </string>
           </argument>
         </arguments>
@@ -85,13 +129,69 @@ slot=0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self()
+            <string>/*if (surface_exists(statsSurface))
+{
+    
+}
 
+draw_self()*/
+draw_self()
+
+draw_surface(statsSurface,view_xview[0],view_yview[0])
+draw_text(x+64,y+260,"ref "+string(ref))
+draw_text(x+64,y+290,"refSort "+string(refSlot))
+/*
 draw_text(x+64,y+60,"HP "+string(hp))
 draw_text(x+64,y+90,"ATK "+string(atk))
 draw_text(x+64,y+120,"Heal "+string(heal))
 draw_text(x+64,y+30,string(name))
 draw_text(x+128,y+30,"Slot "+string(slot))
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///drawing of statsu on page 
+draw_set_halign(fa_left)
+draw_text(x+24,y+100,"Name    "+string(global.inv_item[ref,0]))
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="32">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>instance_destroy()
 </string>
           </argument>
         </arguments>

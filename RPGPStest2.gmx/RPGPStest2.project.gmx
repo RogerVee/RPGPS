@@ -14,28 +14,30 @@
   </sounds>
   <sprites name="sprites">
     <sprites name="gem">
-      <sprite>sprites\blu_spr</sprite>
       <sprite>sprites\test</sprite>
+      <sprite>sprites\test2</sprite>
     </sprites>
     <sprites name="NPC">
       <sprite>sprites\grs_spr</sprite>
     </sprites>
     <sprite>sprites\butt_spr</sprite>
+    <sprite>sprites\button_new</sprite>
     <sprite>sprites\spr_board</sprite>
     <sprite>sprites\spr_feild</sprite>
     <sprites name="runegrp">
-      <sprite>sprites\pnk_spr</sprite>
+      <sprite>sprites\pnk_spr_old</sprite>
+      <sprite>sprites\blk_spr_old</sprite>
+      <sprite>sprites\grn_spr_old</sprite>
+      <sprite>sprites\blue_spr_old</sprite>
+      <sprite>sprites\red_spr_old</sprite>
+      <sprite>sprites\wh_spr_old</sprite>
+      <sprite>sprites\hit_spr</sprite>
+      <sprite>sprites\red_spr</sprite>
       <sprite>sprites\blk_spr</sprite>
+      <sprite>sprites\wh_spr</sprite>
       <sprite>sprites\grn_spr</sprite>
       <sprite>sprites\blue_spr</sprite>
-      <sprite>sprites\red_spr</sprite>
-      <sprite>sprites\wh_spr</sprite>
-      <sprite>sprites\wh_spr1</sprite>
-      <sprite>sprites\red_spr1</sprite>
-      <sprite>sprites\blue_spr1</sprite>
-      <sprite>sprites\grn_spr1</sprite>
-      <sprite>sprites\blk_spr1</sprite>
-      <sprite>sprites\hit_spr</sprite>
+      <sprite>sprites\pnk_spr</sprite>
     </sprites>
     <sprites name="dam group ">
       <sprite>sprites\health_spr</sprite>
@@ -46,25 +48,64 @@
       <sprite>sprites\grn_dam_spr</sprite>
     </sprites>
     <sprites name="armory">
-      <sprite>sprites\slot_img</sprite>
-      <sprite>sprites\base_eqt</sprite>
-      <sprite>sprites\holy_set_spr</sprite>
-      <sprite>sprites\earth_set_spr</sprite>
-      <sprite>sprites\water_set_spr</sprite>
-      <sprite>sprites\fire_set_spr</sprite>
-      <sprite>sprites\steel_set_spr</sprite>
-      <sprite>sprites\feet_eqt_spr</sprite>
-      <sprite>sprites\leg_eqt_spr</sprite>
-      <sprite>sprites\chest_eqt_spr</sprite>
-      <sprite>sprites\hand_eqt_spr</sprite>
-      <sprite>sprites\head_eqt_spr</sprite>
-      <sprite>sprites\stats_spr</sprite>
-      <sprite>sprites\weapion_spr</sprite>
+      <sprites name="UI">
+        <sprite>sprites\stats_spr</sprite>
+        <sprite>sprites\item_slot_spr</sprite>
+        <sprite>sprites\weapion_spr</sprite>
+        <sprite>sprites\item_slot_border</sprite>
+        <sprite>sprites\test_sprite_for_export</sprite>
+        <sprite>sprites\img_tags</sprite>
+        <sprite>sprites\img_border</sprite>
+        <sprite>sprites\item__slot_background_spr</sprite>
+        <sprite>sprites\item_back_spr</sprite>
+        <sprite>sprites\slot_base_spr</sprite>
+      </sprites>
+      <sprites name="sets">
+        <sprite>sprites\holy_set_spr</sprite>
+        <sprite>sprites\sprite</sprite>
+        <sprite>sprites\sprite15</sprite>
+        <sprite>sprites\sprite16</sprite>
+        <sprite>sprites\sprite14</sprite>
+        <sprite>sprites\sprite10</sprite>
+        <sprite>sprites\earth_set_spr</sprite>
+        <sprite>sprites\sprite9</sprite>
+        <sprite>sprites\sprite12</sprite>
+        <sprite>sprites\sprite11</sprite>
+        <sprite>sprites\sprite6</sprite>
+        <sprite>sprites\water_set_spr</sprite>
+        <sprite>sprites\sprite7</sprite>
+        <sprite>sprites\sprite8</sprite>
+        <sprite>sprites\fire_set_spr</sprite>
+        <sprite>sprites\sprite1</sprite>
+        <sprite>sprites\sprite3</sprite>
+        <sprite>sprites\sprite4</sprite>
+        <sprite>sprites\sprite2</sprite>
+        <sprite>sprites\steel_set_spr</sprite>
+        <sprite>sprites\sprite17</sprite>
+        <sprite>sprites\sprite19</sprite>
+        <sprite>sprites\sprite20</sprite>
+        <sprite>sprites\sprite18</sprite>
+        <sprite>sprites\leg_eqt_spr</sprite>
+        <sprite>sprites\hand_eqt_spr</sprite>
+        <sprite>sprites\chest_eqt_spr</sprite>
+        <sprite>sprites\head_eqt_spr</sprite>
+        <sprite>sprites\feet_eqt_spr</sprite>
+        <sprite>sprites\sprite5</sprite>
+        <sprite>sprites\sprite13</sprite>
+        <sprite>sprites\base_eqt</sprite>
+        <sprite>sprites\sprite72</sprite>
+      </sprites>
     </sprites>
     <sprites name="GPS">
       <sprite>sprites\tracking_img</sprite>
       <sprite>sprites\stop_img</sprite>
       <sprite>sprites\track_img</sprite>
+    </sprites>
+    <sprites name="UI">
+      <sprite>sprites\spr_panal</sprite>
+      <sprite>sprites\button_sml_new</sprite>
+      <sprite>sprites\button_tiny</sprite>
+      <sprite>sprites\button_wht_new</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -90,38 +131,59 @@
       <script>scripts\move_scr2.gml</script>
       <script>scripts\fade_scr.gml</script>
       <script>scripts\fadein_scr.gml</script>
-    </scripts>
-    <scripts name="army">
+      <script>scripts\equip_scr.gml</script>
       <script>scripts\eqpt_array.gml</script>
     </scripts>
     <scripts name="invintory">
-      <script>scripts\equip_scr.gml</script>
+      <script>scripts\scr_items.gml</script>
+      <script>scripts\inven_scr.gml</script>
+      <script>scripts\inven_img_scr.gml</script>
+      <script>scripts\scr_hp_mod.gml</script>
+      <script>scripts\scr_atk_mod.gml</script>
+      <script>scripts\scr_heal_mod.gml</script>
+      <script>scripts\scr_inven_check.gml</script>
+      <script>scripts\scr_item_creat.gml</script>
+      <script>scripts\scr_loadout.gml</script>
+      <script>scripts\create_equipment_scr.gml</script>
+      <script>scripts\armory_equip_sort_scr.gml</script>
     </scripts>
     <scripts name="GPS">
       <script>scripts\location_documentation.gml</script>
+      <script>scripts\location_documentation_new.gml</script>
       <script>scripts\travle_cal.gml</script>
     </scripts>
-    <script>scripts\location_documentation_new.gml</script>
+    <scripts name="items">
+      <script>scripts\script19.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_but</font>
+    <font>fonts\fnt_bk_sml</font>
     <font>fonts\testfnt</font>
     <font>fonts\fnt_std_gpsdemo</font>
     <font>fonts\fnt_std_gpsdemo_new</font>
     <font>fonts\fnt_std_gpsdemo_new_new</font>
+    <font>fonts\font5</font>
   </fonts>
   <objects name="objects">
     <object>objects\start_obj</object>
     <object>objects\npc_obj</object>
-    <objects name="buttions">
-      <object>objects\btn_last_obj</object>
+    <objects name="UI">
       <object>objects\btn_btl_obj</object>
-      <object>objects\Arm_btn</object>
       <object>objects\gps_btn</object>
-      <object>objects\bttm_exit_obj</object>
       <object>objects\btn_envounter_obj</object>
       <object>objects\but_obj</object>
-      <object>objects\addinv_btn</object>
+      <objects name="Big main buttons ">
+        <object>objects\btn_advent</object>
+        <object>objects\but_inventory</object>
+        <object>objects\btn_quest</object>
+        <object>objects\but_quest</object>
+        <object>objects\Arm_btn</object>
+      </objects>
+      <objects name="amall buttons ">
+        <object>objects\bttm_exit_obj</object>
+        <object>objects\btn_last_obj</object>
+      </objects>
     </objects>
     <object>objects\play_scrn_obj</object>
     <objects name="OBJ2">
@@ -135,15 +197,28 @@
       <object>objects\obj_dam</object>
     </objects>
     <objects name="old objs">
+      <object>objects\arm_pick</object>
       <object>objects\cont_obj</object>
+      <object>objects\eqt_obj</object>
       <object>objects\gem_obj</object>
     </objects>
     <objects name="armory room">
       <object>objects\slot_obj</object>
-      <object>objects\arm_pick</object>
+      <object>objects\obj_border</object>
+      <object>objects\obj_back</object>
+      <object>objects\obj_tags</object>
+      <object>objects\obj_eqtNew</object>
       <object>objects\army_cntrl</object>
-      <object>objects\eqt_obj</object>
-      <object>objects\stats_obj</object>
+      <objects name="armory ui">
+        <object>objects\obj_main_slots</object>
+        <object>objects\addinv_btn</object>
+        <object>objects\obj_item_panal</object>
+        <object>objects\obj_equip_item_btn</object>
+        <object>objects\obj_cancel_item_btn</object>
+        <object>objects\armor_sort_btn</object>
+        <object>objects\armor_page_but</object>
+        <object>objects\stats_obj</object>
+      </objects>
     </objects>
     <objects name="GPS">
       <object>objects\obj_gpsdemo</object>
@@ -153,6 +228,7 @@
       <object>objects\travling_buttion</object>
       <object>objects\walk_obj</object>
     </objects>
+    <object>objects\obj_debug</object>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\timeline0</timeline>
@@ -160,8 +236,14 @@
   <rooms name="rooms">
     <room>rooms\main_room</room>
     <room>rooms\battle_room</room>
-    <room>rooms\armory_rm</room>
-    <room>rooms\rm_gps</room>
+    <room>rooms\armory2_rm</room>
+    <room>rooms\adventure_rm</room>
+    <room>rooms\quest_rm</room>
+    <room>rooms\inventory_rm</room>
+    <rooms name="rooms old ">
+      <room>rooms\armory_rm</room>
+      <room>rooms\rm_gps</room>
+    </rooms>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

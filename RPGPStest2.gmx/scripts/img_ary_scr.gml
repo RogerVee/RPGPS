@@ -12,6 +12,7 @@ global.imageArray[5]=wh_spr
 
 
 
+
 for(i=0;i<6;i++){
 global.colorArray[i]=0}
 

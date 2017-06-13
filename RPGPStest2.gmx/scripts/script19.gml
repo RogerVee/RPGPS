@@ -1,0 +1,2 @@
+type= random(5)
+

@@ -1,3 +1,4 @@
+//
 rm=argument0;
 cnt =random_range(1,5)// how many npcs in the room
 ccnt =cnt//npcs need to gen

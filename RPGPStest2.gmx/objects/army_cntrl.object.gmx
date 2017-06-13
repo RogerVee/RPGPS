@@ -25,27 +25,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>for(i=0;i&lt;6;i++){
-     nnn= instance_create(i*128,64,slot_obj)      
-       nnn.slot=i
-            }   
-            
-            instance_create(0,192,stats_obj)
-            
-for(i=0;i&lt;6;i++){
-     nnn= instance_create(i*128,500,eqt_obj) 
-        eqt_scr(nnn)
-        with (nnn){
-        
-        
-        
-        
-        
-        }
-         
-                  }   
-            
-          
+            <string>global.equipPage=1// page currntly dispalying 
+global.equipPageMax=1//maxPages 
+global.equipSort=0//sort beging used 
+
+armory_equip_sort_scr()
+             /*  0   array postion 
+                1   name
+                2   lvl
+                3   weight
+                4   type
+             */   
 </string>
           </argument>
         </arguments>
@@ -68,8 +58,8 @@ for(i=0;i&lt;6;i++){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>           
-        
+            <string>    ///grab function       
+       /* 
              inst = instance_position(mouse_x, mouse_y, eqt_obj);
         
                 if inst != noone 

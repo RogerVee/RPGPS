@@ -8,17 +8,17 @@
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
   <bbox_left>0</bbox_left>
-  <bbox_right>719</bbox_right>
+  <bbox_right>766</bbox_right>
   <bbox_top>0</bbox_top>
-  <bbox_bottom>197</bbox_bottom>
+  <bbox_bottom>783</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
     <TextureGroup0>0</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
-  <width>720</width>
-  <height>198</height>
+  <width>767</width>
+  <height>784</height>
   <frames>
     <frame index="0">images\stats_spr_0.png</frame>
   </frames>

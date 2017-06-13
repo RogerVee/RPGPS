@@ -1,6 +1,7 @@
 //aug1 ///type sword sheild ect
 //aug2// rareity
 //aug3//color
+/* off for testing 
 r=(random_range(0,1))//getting rare lvl will be feed later
 t=random(5)//random item type will be fedd later// maybe get it when assesing the list to see what is avlibille
 c=random(5)//random color /will be feed later
